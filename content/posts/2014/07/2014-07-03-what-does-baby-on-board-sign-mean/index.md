@@ -13,7 +13,7 @@ cover: https://sa0blogs.blob.core.windows.net/justinchronicles/2014/07/baby-on-b
 
 요즘 들어 갑자기 이런 트윗 + 페북 포스트들이 많이 돌고 있다.
 
-투이타 삭제됐음
+**_투이타 삭제됐음_**
 
 게다가 블로그 포스트도 있네?
 

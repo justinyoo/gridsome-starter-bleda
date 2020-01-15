@@ -33,6 +33,11 @@ jobs:
       run: |
         npm run build
 
+    - name: Copy talks
+      shell: bash
+      run: |
+        cp -a content/talks/. dist/talks/
+
     - name: Apply redirects
       shell: bash
       run: |

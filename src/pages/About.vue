@@ -14,6 +14,7 @@
           <h3>2020</h3>
           <ol>
             <li>16/01/2020, <a href="https://conf.devopskorea.org/202001/" target="_blank">DevOps Korea</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200116-devopskorea-github-actions-101.pdf" target="_blank">"깃헙 액션, 이것만 알면 참 쉽죠!"</a></li>
+            <li>03/02/2020, <a href="https://www.changbal.org/event-info/gaebalja-geulub-2wol-moim" target="_blank">Changbal &ndash; Korean IT Professional in Seattle Area</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200203-changbal-github-actions-101.pdf" target="_blank">"GitHub Actions 101"</a></li>
           </ol>
         </div>
       </article>

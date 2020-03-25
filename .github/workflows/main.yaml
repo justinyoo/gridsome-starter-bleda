@@ -7,6 +7,8 @@ on:
 
 jobs:
   build_and_publish:
+    name: Build and publish
+
     runs-on: ubuntu-latest
 
     steps:
@@ -32,11 +34,6 @@ jobs:
       shell: bash
       run: |
         npm run build
-
-    # - name: Copy talks
-    #   shell: bash
-    #   run: |
-    #     cp -a content/talks/. dist/talks/
 
     - name: Apply redirects
       shell: bash

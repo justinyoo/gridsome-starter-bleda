@@ -15,4 +15,9 @@ jobs:
     - name: Check event payload
       shell: bash
       run: |
+        echo ${{ toJSON(github.event) }}
+
+    - name: Check event payload
+      shell: bash
+      run: |
         echo ${{ toJSON(github.event.pull_request.body) }}

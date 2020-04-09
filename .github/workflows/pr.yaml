@@ -22,10 +22,10 @@ jobs:
     - name: Check pr body
       shell: bash
       run: |
-        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.published'
-        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.twitter'
-        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.facebook'
-        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.linkedin'
+        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.published'
+        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.twitter'
+        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.facebook'
+        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.linkedin'
 
     - name: Check event payload
       shell: bash

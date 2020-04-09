@@ -4,8 +4,10 @@ on:
   pull_request:
     branches:
     - dev
-    # types:
-    # - opened
+    types:
+    - opened
+    - edited
+    - synchronize
 
 jobs:
   schedule_publish:

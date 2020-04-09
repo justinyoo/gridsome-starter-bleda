@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
     - dev
+    # types:
+    # - opened
 
 jobs:
   schedule_publish:
@@ -15,7 +17,7 @@ jobs:
     - name: Check pr body
       shell: bash
       run: |
-        echo ${{ toJSON(github.event.pull_request.body) }}
+        echo ${{ github.event.pull_request.body }}
 
     - name: Check event payload
       shell: bash

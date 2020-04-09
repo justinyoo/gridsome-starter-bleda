@@ -14,18 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install niet
+      shell: bash
+      run: |
+        sudo pip install -U niet
+
     - name: Check pr body
       shell: bash
       run: |
-        function yaml2json()
-        {
-            ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))' $*
-        }
-
-        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.published'
-        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.twitter'
-        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.facebook'
-        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.linkedin'
+        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.published'
+        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.twitter'
+        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.facebook'
+        echo ${{ toJSON(github.event.pull_request.body) }} | niet '.linkedin'
 
     - name: Check event payload
       shell: bash

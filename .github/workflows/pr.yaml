@@ -17,7 +17,11 @@ jobs:
     - name: Check pr body
       shell: bash
       run: |
-        echo ${{ github.event.pull_request.body }}
+        alias yaml2json="ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))'"
+        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.published'
+        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.twitter'
+        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.facebook'
+        echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.linkedin'
 
     - name: Check event payload
       shell: bash

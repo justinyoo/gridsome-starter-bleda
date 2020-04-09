@@ -22,10 +22,18 @@ jobs:
     - name: Check pr body
       shell: bash
       run: |
-        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.published'
-        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.twitter'
-        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.facebook'
-        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.linkedin'
+        export PUBLISHED=$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.published')
+        export TWITTER_MESSAGE=$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.twitter')
+        export FACEBOOK_MESSAGE=$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.facebook')
+        export LINKEDIN_MESSAGE=$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.linkedin')
+
+    - name: Check environment variables
+      shell: bash
+      run: |
+        echo "Published: $PUBLISHED"
+        echo "Twitter Message: $TWITTER_MESSAGE"
+        echo "Facebook Message: $FACEBOOK_MESSAGE"
+        echo "LinkedIn Message: $LINKEDIN_MESSAGE"
 
     - name: Check event payload
       shell: bash

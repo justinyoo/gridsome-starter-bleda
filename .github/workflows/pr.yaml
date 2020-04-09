@@ -17,7 +17,7 @@ jobs:
     - name: Check pr body
       shell: bash
       run: |
-        alias yaml2json="ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))'"
+        sudo alias yaml2json="ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))'"
         echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.published'
         echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.twitter'
         echo ${{ toJSON(github.event.pull_request.body) }} | yaml2json | jq '.facebook'

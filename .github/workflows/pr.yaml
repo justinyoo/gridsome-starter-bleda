@@ -25,7 +25,7 @@ jobs:
       id: prbody
       shell: bash
       run: |
-        echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet . -f json
+        echo "Published: $(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!published: !!g' | sed 's!\\r\\n!!g')"
 
     # - name: Check pr body
     #   id: prbody

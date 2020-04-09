@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check event payload
+    - name: Check pr body
       shell: bash
       run: |
-        echo ${{ toJSON(github.event) }}
+        echo ${{ toJSON(github.event.pull_request.body) }}
 
     - name: Check event payload
       shell: bash
       run: |
-        echo ${{ toJSON(github.event.pull_request.body) }}
+        echo ${{ toJSON(github.event) }}

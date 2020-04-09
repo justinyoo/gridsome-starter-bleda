@@ -6,8 +6,8 @@ on:
     - dev
     types:
     - opened
-    - edited
-    - synchronize
+    # - edited
+    # - synchronize
 
 jobs:
   schedule_publish:
@@ -25,26 +25,14 @@ jobs:
       id: prbody
       shell: bash
       run: |
-        echo "Published: $(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!published: !!g' | sed 's!\\r\\n!!g')"
+        echo ::set-output name=published::$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!published: !!g' | sed 's!\\r\\n!!g')
 
-    # - name: Check pr body
-    #   id: prbody
-    #   shell: bash
-    #   run: |
-    #     echo ::set-output name=published::$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.published')
-    #     echo ::set-output name=twitterMessage::$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.twitter')
-    #     echo ::set-output name=facebookMessage::$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.facebook')
-    #     echo ::set-output name=linkedInMessage::$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!\\r\\n!\r\n!g' | niet '.linkedin')
-
-    # - name: Check environment variables
-    #   shell: bash
-    #   run: |
-    #     echo "Published: ${{ steps.prbody.outputs.published }}"
-    #     echo "Twitter Message: ${{ steps.prbody.outputs.twitterMessage }}"
-    #     echo "Facebook Message: ${{ steps.prbody.outputs.facebookMessage }}"
-    #     echo "LinkedIn Message: ${{ steps.prbody.outputs.linkedInMessage }}"
-
-    - name: Check event payload
+    - name: Check environment variables
       shell: bash
       run: |
-        echo ${{ toJSON(github.event) }}
+        echo "Published: ${{ steps.prbody.outputs.published }}"
+
+    # - name: Check event payload
+    #   shell: bash
+    #   run: |
+    #     echo ${{ toJSON(github.event) }}

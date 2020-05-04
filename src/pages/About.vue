@@ -13,6 +13,7 @@
           <h2>My Talks</h2>
           <h3>2020</h3>
           <ol>
+            <li>25/04/2020, <a href="https://festa.io/events/976" target="_blank">Global Azure Virtual 2020 Korea</a> &ndash; <a href="https://aka.ms/gab2020/track-d-3" target="_blank">"파워 앱과 안면 인식 서비스로 학교 온라인 출석체크 앱 만들기"</a> (<a href="https://www.youtube.com/watch?v=qZSaBuxYlR4" target="_blank">동영상</a>)</li>
             <li>17/03/2020, <a href="https://aka.ms/GameStackLive" target="_blank">Game Stack Live</a> &ndash; <a href="https://youtu.be/oW-KCIJ-ph8" target="_blank">"From Code to Cloud: Streamlining your Development Workflow"</a></li>
             <li>03/02/2020, <a href="https://www.changbal.org/event-info/gaebalja-geulub-2wol-moim" target="_blank">Changbal: Korean IT Professional in Seattle Area</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200203-changbal-github-actions-101.pdf" target="_blank">"GitHub Actions 101"</a></li>
             <li>22/01/2020, <a href="https://www.microsoft.com/ko-kr/ignite-the-tour/seoul" target="_blank">Ignite Tour Seoul</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200122-mittseoul-afun70.pdf" target="_blank">"애저 리소스 사용 비용 절약하기"</a></li>

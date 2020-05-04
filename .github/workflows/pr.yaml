@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install niet
-      shell: bash
-      run: |
-        sudo pip install -U niet
+    # - name: Check event payload
+    #   shell: bash
+    #   run: |
+    #     echo ${{ toJSON(github.event) }}
 
     - name: Check pr body
       id: prbody
@@ -32,7 +32,14 @@ jobs:
       run: |
         echo "Published: ${{ steps.prbody.outputs.published }}"
 
-    # - name: Check event payload
-    #   shell: bash
-    #   run: |
-    #     echo ${{ toJSON(github.event) }}
+    # - name: Get owner and repository
+    #   uses: jungwinter/split@v1
+    #   id: split
+    #   with:
+    #     msg: ${{ github.event.repository.full_name) }}
+    #     separator: '/'
+
+    - name: Schedule publish
+      shell: bash
+      run: |
+        curl -X POST 'https://${{ secrets.AZURE_FUNCTIONS_NAME }}.azurewebsites.net/api/orchestrators/schedule-event' -d '{ "owner": "justinyoo", "repository": "blog", "issueId": ${{ github.event.pull_request.number }}, "schedule": "${{ steps.prbody.outputs.published }}" }} }' -H "x-functions-key: ${{ secrets.AZURE_FUNCTIONS_KEY }}" -H "Content-Type: application/json"

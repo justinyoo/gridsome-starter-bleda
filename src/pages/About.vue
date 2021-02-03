@@ -11,14 +11,19 @@
       <article class="max-w-xl md:max-w-2xl xl:max-w-3xl mx-auto px-6 sm:px-12 pt-16 border-b border-gray-300 pb-10 mb-16">
         <div class="markdown text-lg leading-normal text-gray-700">
           <h2>My Talks</h2>
+          <h3>2021</h3>
+          <ol>
+            <li>05/02/2021, <a href="https://events.powercommunity.com/sessions/azure-functions-open-api-integration-for-power-platform/" target="_blank">Global Automation Bootcamp 2021</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/2021/20210205-gatmb-openapi-enablement.pdf" target="_blank">"Open API Enablement on Azure Functions for Power Platform"</a></li>
+          </ol>
+
           <h3>2020</h3>
           <ol>
             <li>25/04/2020, <a href="https://festa.io/events/976" target="_blank">Global Azure Virtual 2020 Korea</a> &ndash; <a href="https://aka.ms/gab2020/track-d-3" target="_blank">"파워 앱과 안면 인식 서비스로 학교 온라인 출석체크 앱 만들기"</a> (<a href="https://www.youtube.com/watch?v=qZSaBuxYlR4" target="_blank">동영상</a>)</li>
             <li>17/03/2020, <a href="https://aka.ms/GameStackLive" target="_blank">Game Stack Live</a> &ndash; <a href="https://youtu.be/oW-KCIJ-ph8" target="_blank">"From Code to Cloud: Streamlining your Development Workflow"</a></li>
             <li>03/02/2020, <a href="https://www.changbal.org/event-info/gaebalja-geulub-2wol-moim" target="_blank">Changbal: Korean IT Professional in Seattle Area</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200203-changbal-github-actions-101.pdf" target="_blank">"GitHub Actions 101"</a></li>
-            <li>22/01/2020, <a href="https://www.microsoft.com/ko-kr/ignite-the-tour/seoul" target="_blank">Ignite Tour Seoul</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200122-mittseoul-afun70.pdf" target="_blank">"애저 리소스 사용 비용 절약하기"</a></li>
-            <li>16/01/2020, <a href="https://conf.devopskorea.org/202001/" target="_blank">DevOps Korea</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200116-devopskorea-github-actions-101.pdf" target="_blank">"깃헙 액션, 이것만 알면 참 쉽죠!"</a></li>
-            <li>14/01/2020, <a href="https://www.microsoft.com/zh-cn/ignite-the-tour/shenzhen" target="_blank">Ignite Tour Shenzhen</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/20200114-mittshenzhen-afun95.pdf" target="_blank">"清楚理解 Azure Functions 和 Azure 逻辑应用"</a></li>
+            <li>22/01/2020, <a href="https://www.microsoft.com/ko-kr/ignite-the-tour/seoul" target="_blank">Ignite Tour Seoul</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/2020/20200122-mittseoul-afun70.pdf" target="_blank">"애저 리소스 사용 비용 절약하기"</a></li>
+            <li>16/01/2020, <a href="https://conf.devopskorea.org/202001/" target="_blank">DevOps Korea</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/2020/20200116-devopskorea-github-actions-101.pdf" target="_blank">"깃헙 액션, 이것만 알면 참 쉽죠!"</a></li>
+            <li>14/01/2020, <a href="https://www.microsoft.com/zh-cn/ignite-the-tour/shenzhen" target="_blank">Ignite Tour Shenzhen</a> &ndash; <a href="https://github.com/justinyoo/blog/raw/dev/content/talks/2020/20200114-mittshenzhen-afun95.pdf" target="_blank">"清楚理解 Azure Functions 和 Azure 逻辑应用"</a></li>
           </ol>
         </div>
       </article>

@@ -6,7 +6,7 @@ date: "2021-01-21"
 author: Justin-Yoo
 tags:
 - presentation
-cover: https://sa0blogs.blob.core.windows.net/justinchronicles/2021/01/elic-ai-racers-00.png
+cover: https://sa0blogs.blob.core.windows.net/justinchronicles/2021/01/elice-ai-racers-00.png
 fullscreen: true
 ---
 

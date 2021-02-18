@@ -25,12 +25,30 @@ jobs:
       id: prbody
       shell: bash
       run: |
-        echo ::set-output name=published::$(echo ${{ toJSON(github.event.pull_request.body) }} | sed 's!published: !!g' | sed 's!\\r\\n!!g')
+        echo ::set-output name=value::$(echo ${{ toJSON(github.event.pull_request.body) }})
 
-    - name: Check environment variables
+    - name: Extract frontmatter from PR body
+      id: frontmatter
+      uses: aliencube/frontmatter-to-json-actions@v1
+      with:
+        markdown: '${{ toJSON(steps.prbody.outputs.value) }}'
+
+    - name: Check the frontmatter outputs
       shell: bash
       run: |
-        echo "Published: ${{ steps.prbody.outputs.published }}"
+        echo ${{ toJSON(steps.frontmatter.outputs.jsonised) }} | jq "."
+        echo ${{ toJSON(steps.frontmatter.outputs.jsonised) }} | jq -r ".schedule"
+        echo ${{ toJSON(steps.frontmatter.outputs.jsonised) }} | jq -r ".slug"
+        echo ${{ toJSON(steps.frontmatter.outputs.jsonised) }} | jq -r ".twitter"
+        echo ${{ toJSON(steps.frontmatter.outputs.jsonised) }} | jq -r ".facebook"
+        echo ${{ toJSON(steps.frontmatter.outputs.jsonised) }} | jq -r ".linkedin"
+
+    - name: Get publish schedule
+      id: schedule
+      shell: bash
+      run: |
+        schedule=$(TZ=Asia/Seoul date --date $(echo ${{ toJSON(steps.frontmatter.outputs.jsonised) }} | jq -r ".schedule") --iso-8601=s)
+        echo ::set-output name=value::$schedule
 
     # - name: Get owner and repository
     #   uses: jungwinter/split@v1
@@ -42,4 +60,7 @@ jobs:
     - name: Schedule publish
       shell: bash
       run: |
-        curl -X POST 'https://${{ secrets.AZURE_FUNCTIONS_NAME }}.azurewebsites.net/api/orchestrators/schedule-event' -d '{ "owner": "justinyoo", "repository": "blog", "issueId": ${{ github.event.pull_request.number }}, "schedule": "${{ steps.prbody.outputs.published }}" }} }' -H "x-functions-key: ${{ secrets.AZURE_FUNCTIONS_KEY }}" -H "Content-Type: application/json"
+        curl -X POST 'https://${{ secrets.AZURE_FUNCTIONS_NAME }}.azurewebsites.net/api/orchestrators/schedule-event' \
+            -H "x-functions-key: ${{ secrets.AZURE_FUNCTIONS_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{ "owner": "justinyoo", "repository": "blog", "issueId": ${{ github.event.pull_request.number }}, "schedule": "${{ steps.schedule.outputs.value }}" }} }'
